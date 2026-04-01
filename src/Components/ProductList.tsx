@@ -2,6 +2,7 @@ import React from "react";
 import { ProductsType } from "@/types";
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
+import Link from "next/dist/client/link";
 
 const products: ProductsType = [
   {
@@ -114,15 +115,23 @@ const products: ProductsType = [
   },
 ];
 
-const ProductList = () => {
+const ProductList = ({ cat }: { cat: string }) => {
   return (
     <div className="w-full">
       <Categories />
+      {/* product list */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      {/* view all products */}
+      <Link
+        href={cat ? `/Products?category=${cat}` : "/Products"}
+        className="flex justify-end mt-4 underline text-sm text-gray-500"
+      >
+        View All Products
+      </Link>
     </div>
   );
 };

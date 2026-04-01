@@ -1,17 +1,18 @@
 import ProductList from "@/Components/ProductList";
 import Image from "next/image";
 
-const Homepage = () => {
+const Homepage = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ cat: string }>;
+}) => {
+  const cat = (await searchParams).cat;
   return (
     <div>
-      <div
-        className="relative aspect-[3.3/1] mbHomePage
-HomePage
-HomePage-12 mb-12"
-      >
+      <div className="relative aspect-[3.3/1] mb-12">
         <Image src="/featured.png" alt="featured product" fill />
       </div>
-      <ProductList />
+      <ProductList cat={cat} />
     </div>
   );
 };
