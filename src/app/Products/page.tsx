@@ -7,7 +7,7 @@ const ProductsPage = async ({
   searchParams: Promise<{ cat: string }>;
 }) => {
   const cat = (await searchParams).cat;
-  return <ProductList cat={cat} />;
+  return <ProductList cat={cat} params="Products" />;
 };
 
 export default ProductsPage;

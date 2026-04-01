@@ -3,6 +3,7 @@ import { ProductsType } from "@/types";
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
 import Link from "next/dist/client/link";
+import Filter from "./Filter";
 
 const products: ProductsType = [
   {
@@ -115,10 +116,17 @@ const products: ProductsType = [
   },
 ];
 
-const ProductList = ({ cat }: { cat: string }) => {
+const ProductList = ({
+  cat,
+  params,
+}: {
+  cat: string;
+  params: "homePage" | "Products";
+}) => {
   return (
     <div className="w-full">
       <Categories />
+      {params === "Products" && <Filter />}
       {/* product list */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {products.map((product) => (
