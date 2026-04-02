@@ -3,6 +3,13 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 
+const Options = [
+  { value: "newest", label: "Newest" },
+  { value: "oldest", label: "Oldest" },
+  { value: "price-asc", label: "Price: High to Low" },
+  { value: "price-desc", label: "Price: Low to High" },
+];
+
 const Filter = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -23,10 +30,15 @@ const Filter = () => {
         className="ring ring-gray-200 shadow-md p-1 rounded-sm"
         onChange={(e) => handleFilter(e.target.value)}
       >
-        <option value="newest">Newest</option>
-        <option value="oldest">Oldest</option>
-        <option value="price-asc">Price: High to Low</option>
-        <option value="price-desc">Price: Low to High</option>
+        {Options.map((option) => (
+          <option
+            key={option.value}
+            value={option.value}
+            className="bg-black text-white"
+          >
+            {option.label}
+          </option>
+        ))}
       </select>
     </div>
   );
