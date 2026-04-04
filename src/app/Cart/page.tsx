@@ -2,7 +2,7 @@
 
 import PaymentMethos from "@/Components/PaymentMethos";
 import ShippingForm from "@/Components/ShippingForm";
-import { CartItemsType } from "@/types";
+import { CartItemsType, ShippingInfoType } from "@/types";
 import { ArrowRight, Ship, Trash2 } from "lucide-react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
@@ -83,7 +83,9 @@ const Contents: CartItemsType = [
 const CartPage = () => {
   const searchParams = useSearchParams();
   const route = useRouter();
-  const [shippingData, setShippingData] = useState(null);
+  const [shippingData, setShippingData] = useState<ShippingInfoType | null>(
+    null,
+  );
 
   const activeStep = parseInt(searchParams.get("step") || "1");
   return (
@@ -160,7 +162,7 @@ const CartPage = () => {
               </div>
             ))
           ) : activeStep === 2 ? (
-            <ShippingForm />
+            <ShippingForm setShippingData={setShippingData} />
           ) : activeStep === 3 && shippingData ? (
             <PaymentMethos />
           ) : (
@@ -168,7 +170,7 @@ const CartPage = () => {
           )}
         </div>
         {/* details */}
-        <div className="w-full lg:w-5/12 shadow-lg border-1 border-gray-100 rounded-lg gap-8 flex flex-col p-8">
+        <div className="w-full lg:w-5/12 shadow-lg border-1 border-gray-100 rounded-lg gap-8 flex flex-col p-8 h-max">
           <h2 className="font-semibold">Cart Details</h2>
           <div className="flex flex-col gap-4">
             {/* subtotal */}
