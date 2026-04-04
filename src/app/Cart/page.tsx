@@ -122,7 +122,7 @@ const CartPage = () => {
           {activeStep === 1 ? (
             Contents.map((item) => (
               // cart item
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between" key={item.id}>
                 <div className="flex gap-8">
                   {/* image and details */}
                   <div className="flex gap-8 relative w-32 h-40 bg-gray-50 rounded-lg overflow-hidden">
