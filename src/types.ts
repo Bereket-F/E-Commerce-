@@ -45,3 +45,13 @@ export const PaymentInfoSchema = z.object({
 })
 
 export type PaymentInfoType = z.infer<typeof PaymentInfoSchema>
+
+export type CartStoreStateType = {
+   cart: CartItemType[];
+}
+
+export type CartStoreActionType = {
+    addToCart: (product: CartItemType) => void;
+    removeFromcart: (product: CartItemType) => void;
+    clearCart: () => void;
+}
