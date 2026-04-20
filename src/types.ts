@@ -48,6 +48,7 @@ export type PaymentInfoType = z.infer<typeof PaymentInfoSchema>
 
 export type CartStoreStateType = {
    cart: CartItemType[];
+   hasHydration: boolean
 }
 
 export type CartStoreActionType = {

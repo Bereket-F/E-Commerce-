@@ -2,7 +2,7 @@
 
 import { ProductType } from "@/types";
 import { ShoppingCart } from "lucide-react";
-import Link from "next/dist/client/link";
+import Link from "next/link";
 import { useState } from "react";
 import useCartStore from "@/Stores/cartStores";
 import { toast } from "react-toastify";
@@ -36,7 +36,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
   };
   return (
     <div className="shadow-lg rounded-lg overflow-hidden">
-      <Link href={`/product/${product.id}`}>
+      <Link href={`/Products/${product.id}`}>
         <div>
           <img
             src={product.images[ProductType.color]}
