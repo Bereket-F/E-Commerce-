@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "E-Commerce",
-  description: "Created by Bereket Fanose",
+  title: "vibewear",
+  description: "this is the place where you get what you want!",
 };
 
 export default function RootLayout({

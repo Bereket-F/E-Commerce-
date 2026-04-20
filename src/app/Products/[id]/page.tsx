@@ -1,6 +1,7 @@
 import ProductInteraction from "@/Components/ProductInteraction";
 import { ProductType } from "@/types";
 import Image from "next/image";
+import { title } from "process";
 import React from "react";
 
 //temporary data
@@ -19,6 +20,19 @@ const product: ProductType = {
     purple: "/products/1p.png",
     green: "/products/1gr.png",
   },
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { id: string };
+}) => {
+  // get the product from db
+  // fot temporary
+  return {
+    title: product.name,
+    describtion: product.description,
+  };
 };
 
 const ProductPage = async ({
